@@ -25,7 +25,15 @@ SECRET_KEY = "django-insecure-z7@mc4l6qi6kz(i!92t_1+29lbhk6&ec9hr6pdh5)onpjx_3%7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.app.github.dev",
+    "https://localhost:8000",
+    "http://127.0.0.1:8000"
+]
 
 
 # Application definition
@@ -132,3 +140,10 @@ MAILERS = {
 }
 
 API_URL = 'https://jsonplaceholder.typicode.com/posts'
+
+# Authentication settings
+# Fallo: acceso sin autenticación
+LOGIN_URL = '/login/'
+
+# Éxito: luego de autenticación exitosa
+LOGIN_REDIRECT_URL = '/'
